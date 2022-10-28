@@ -17,3 +17,9 @@ These contain all my templates for developement; most of them are for webdev but
 [Proxy-ElectronJS/](./Proxy-ElectronJS/)
 
 [Yew-App/](./Yew-App/)
+
+# License
+
+`AGPL-3.0-or-later`
+
+[License](./LICENSE)
