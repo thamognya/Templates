@@ -1,0 +1,39 @@
+{
+  "name": "create-tailwindcss-next-app",
+  "version": "0.0.1",
+  "description": "Set up a tailwindcss and nextjs app in one second",
+  "bin": {
+    "create-yew-app": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thamognya/Template-TailWindCSS-Next-App",
+    "directory": "src"
+  },
+  "files": [
+    "index.js",
+    "createTailwindCssNextApp.js"
+  ],
+  "keywords": [
+    "tailwindcss",
+    "create-next-app"
+  ],
+  "author": "Thamognya Kodi <contact@thamognya.com>",
+  "license": "AGPL-3.0-or-later",
+  "engines": {
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/thamognya/Template-TailWindCSS-Next-App/issues"
+  },
+  "homepage": "https://github.com/thamognya/Template-TailWindCSS-Next-App",
+  "dependencies": {
+    "chalk": "3.0.0",
+    "cpr": "^3.0.1",
+    "cross-spawn": "^7.0.3",
+    "rimraf": "^3.0.0"
+  }
+}

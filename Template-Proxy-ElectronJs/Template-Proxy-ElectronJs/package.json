@@ -1,0 +1,21 @@
+{
+    "name": "template-proxy-electronjs",
+    "version": "0.1.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "dev": "electron .",
+        "start": "electron .",
+        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Thamognya Kodi",
+    "license": "AGPL-3.0-or-later",
+    "devDependencies": {
+        "electron": "^20.2.0"
+    },
+    "dependencies": {
+        "free-proxy": "^0.2.1",
+        "prettier": "^2.7.1"
+    }
+}
