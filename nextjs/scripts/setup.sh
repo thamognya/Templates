@@ -5,6 +5,8 @@ if test $(whereis cargo | grep -c cargo) = 1 ; then
 else
     echo "installing cargo"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    echo ". \"$HOME/.cargo/env\"" > $HOME/.profile
+    source $HOME/.cargo/env
 fi
 
 if test $(whereis rustup | grep -c rustup) = 1 ; then
@@ -12,6 +14,8 @@ if test $(whereis rustup | grep -c rustup) = 1 ; then
 else
     echo "installing rustup"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    echo ". \"$HOME/.cargo/env\"" > $HOME/.profile
+    source $HOME/.cargo/env
 fi
 
 if test $(whereis wasm-pack | grep -c wasm-pack) = 1 ; then
