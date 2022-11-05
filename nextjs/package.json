@@ -1,54 +1,110 @@
 {
-  "name": "nextjs-template",
-  "version": "0.1.0",
-  "description": "NextJS latest template",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "css:sass": "sass styles/globals.scss styles/globals.css",
-    "css:tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
-    "css": "npm run css:sass && npm run css:tailwind",
-    "dev:only": "turbo run dev --parallel",
-    "dev": "concurrently 'npm run dev:only' 'npm run css'",
-    "build": "turbo run build",
-    "start": "next start",
-    "clean": "turbo run clean",
-    "lint:lintfix": "turbo run lint",
-    "lint:format": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,sass}'",
-    "lint": "npm run lint:format && npm run lint:lintfix",
-    "postinstall": "npm run tailwind"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thamognya/Templates.git"
-  },
-  "author": "Thamognya Kodi <contact@thamognya.com>",
-  "license": "AGPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/thamognya/Templates/issues"
-  },
-  "homepage": "https://github.com/thamognya/Templates#readme",
-  "dependencies": {
-    "concurrently": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "postcss": "latest",
-    "prettier": "latest",
-    "prettier-plugin-tailwindcss": "latest",
-    "sass": "latest",
-    "tailwindcss": "latest",
-    "turbo": "latest",
-    "typescript": "latest"
-  }
+    "name": "nextjs-template",
+    "version": "0.1.0",
+    "description": "NextJS latest template",
+    "homepage": "https://github.com/thamognya/Templates#readme",
+    "bugs": {
+        "url": "https://github.com/thamognya/Templates/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thamognya/Templates.git"
+    },
+    "license": "AGPL-3.0-or-later",
+    "author": "Thamognya Kodi <contact@thamognya.com>",
+    "workspaces": [
+        "apps/*",
+        "packages/*",
+        "pages/*"
+    ],
+    "scripts": {
+        "build": "next build",
+        "clean": "turbo run clean",
+        "css": "npm run css:sass && npm run css:tailwind",
+        "css:sass": "sass styles/globals.scss styles/globals.css",
+        "css:tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
+        "dev": "npm run dev:wasm && npm run dev:turbopack",
+        "dev:turbo": "turbo run dev --parallel",
+        "dev:turbopack": "next dev --turbo",
+        "dev:wasm": "npm run dev:wasm:rust",
+        "dev:wasm:rust": "sh ./scripts/rustwasm.sh",
+        "postinstall": "sh ./scripts/setup.sh",
+        "lint": "npm run lint:update && npm run lint:alex && npm run lint:sort-packages && npm run lint:format && npm run lint:lintfix",
+        "lint:alex": "alex .",
+        "lint:format": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,rs,py}'",
+        "lint:lintfix": "next lint",
+        "lint:sort-packages": "npx sort-package-json",
+        "lint:update": "npm i --force && npm run postinstall",
+        "start": "next start",
+        "test": "jest --all --detectOpenHandles --runInBand --forceExit"
+    },
+    "resolutions": {
+        "browserslist": "latest",
+        "caniuse-lite": "latest"
+    },
+    "dependencies": {
+        "next": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "rustwasm": "file:wasm/rust/pkg",
+        "three": "latest"
+    },
+    "devDependencies": {
+        "@chakra-ui/react": "latest",
+        "@edge-runtime/jest-environment": "latest",
+        "@emotion/react": "latest",
+        "@emotion/styled": "latest",
+        "@jest/types": "latest",
+        "@next/bundle-analyzer": "latest",
+        "@next/env": "latest",
+        "@next/eslint-plugin-next": "latest",
+        "@next/font": "latest",
+        "@next/mdx": "latest",
+        "@next/plugin-storybook": "latest",
+        "@next/polyfill-module": "latest",
+        "@next/polyfill-nomodule": "latest",
+        "@swc/cli": "latest",
+        "@swc/core": "latest",
+        "@swc/helpers": "latest",
+        "@swc/jest": "latest",
+        "@swc/wasm": "latest",
+        "@types/jest": "latest",
+        "@types/node": "latest",
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/parser": "latest",
+        "alex": "latest",
+        "autoprefixer": "latest",
+        "concurrently": "latest",
+        "eslint": "latest",
+        "eslint-config-next": "latest",
+        "eslint-plugin-eslint-plugin": "latest",
+        "eslint-plugin-import": "latest",
+        "eslint-plugin-jest": "latest",
+        "eslint-plugin-react": "latest",
+        "eslint-plugin-react-hooks": "latest",
+        "framer-motion": "latest",
+        "jest": "latest",
+        "jest-environment-jsdom": "latest",
+        "jest-extended": "latest",
+        "postcss": "latest",
+        "postcss-nested": "latest",
+        "postcss-pseudoelements": "latest",
+        "postcss-short-size": "latest",
+        "postcss-trolling": "latest",
+        "prettier": "latest",
+        "prettier-plugin-rust": "latest",
+        "prettier-plugin-tailwindcss": "latest",
+        "pretty-bytes": "latest",
+        "pretty-ms": "latest",
+        "sass": "latest",
+        "sort-package-json": "latest",
+        "tailwindcss": "latest",
+        "turbo": "latest",
+        "typescript": "latest"
+    },
+    "engines": {
+        "node": ">=14.6.0"
+    }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "rust",
+  "collaborators": [
+    "Thamognya Kodi <contact@thamognya.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "rust_bg.wasm",
+    "rust.js",
+    "rust.d.ts"
+  ],
+  "module": "rust.js",
+  "types": "rust.d.ts",
+  "sideEffects": false
+}
